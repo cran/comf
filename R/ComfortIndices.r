@@ -5,15 +5,15 @@
 
 # new function in (4) to (6)
 
-source("R/fctPMVPPD.r")
-source("R/fct2Node.r")
-source("R/fctdTNZ.r")
-source("R/fctaTHB.r")
-source("R/fctHBxStSt.r")
-source("R/fctHBxUnSt.r")
-source("R/fctother.r")
+# source("R/fctPMVPPD.r")
+# source("R/fct2Node.r")
+# source("R/fctdTNZ.r")
+# source("R/fctaTHB.r")
+# source("R/fctHBxStSt.r")
+# source("R/fctHBxUnSt.r")
+# source("R/fctother.r")
 
-source("R/fcthelp.r")
+# source("R/fcthelp.r")
 
 calcComfInd <- function(lsCond, request="all"){
 
