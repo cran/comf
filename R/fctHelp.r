@@ -158,12 +158,15 @@ cut(pred, breaks = c(-300, -2.5, -1.5, -.5, .5, 1.5, 2.5, 300), labels = c("-3",
 
 
 # function to calculate mean bias between predicted and actual votes
-calcMeanBias <- function(ref, pred){
-ref <- ifelse(is.factor(ref), as.numeric(as.character(ref)), ref)
-pred <- ifelse(is.factor(pred), as.numeric(as.character(pred)), pred)
+calcBias <- function(ref, pred){
+ref <- ifelse(rep(is.factor(ref),length(ref)), as.numeric(as.character(ref)), ref)
+pred <- ifelse(rep(is.factor(pred),length(pred)), as.numeric(as.character(pred)), pred)
 bias <- pred - ref
 meanBias <- mean(bias, na.rm = T)
-meanBias
+sdBias <- sd(bias)
+seBias <- sdBias/sqrt(length(ref))
+
+data.frame(meanBias, sdBias, seBias)
 }
 
 

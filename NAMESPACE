@@ -1,2 +1,2 @@
 exportPattern("^[[:alpha:]]+")
-importFrom("stats", "median", "na.omit")
+importFrom("stats", "median", "sd", "na.omit")

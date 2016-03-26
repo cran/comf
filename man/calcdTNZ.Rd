@@ -48,7 +48,7 @@ a numeric value presenting the resolution of the matrix to be used
 \item{dTNZTa }{Relative value of distance assuming ambient temperature to be dominant for sensation}
 }
 \references{
-Kingma, B. R., Schweiker, M., Wagner, A. and van Marken Lichtenbelt, W. D. Exploring the potential of a biophysical model to understand thermal sensation Proceedings of 9th windsor Conference: Making Comfort Relevant Cumberland Lodge, Windsor, UK, 2016.
+Kingma, B. R., Schweiker, M., Wagner, A. and van Marken Lichtenbelt, W. D. Exploring the potential of a biophysical model to understand thermal sensation Proceedings of 9th Windsor Conference: Making Comfort Relevant Cumberland Lodge, Windsor, UK, 2016.
 
 Kingma, B. and van Marken Lichtenbelt, W. Energy consumPtion in buildings and female thermal demand Nature Clim. Change, 2015, 5, 1054 - 1056.
 

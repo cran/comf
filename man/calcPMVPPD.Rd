@@ -1,5 +1,7 @@
 \name{calcPMVPPD}
 \alias{calcPMVPPD}
+\alias{calcPMV}
+\alias{calcPPD}
 \title{
 Calculating PMV and PPD
 }

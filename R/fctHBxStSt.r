@@ -38,7 +38,7 @@
 #
 ###############################################
 
-calcHbExsteady <- function(ta, tr, rh, vel, clo, met, tao, rho, frad = .7, eps = .95,  ic = 1.085, ht=171, wt=70, tcr=37, tsk=36, basMet=58.2, warmUp=60, cdil=100, sigmatr=.25){
+calcHbExSteady <- function(ta, tr, rh, vel, clo, met, tao, rho, frad = .7, eps = .95,  ic = 1.085, ht=171, wt=70, tcr=37, tsk=36, basMet=58.2, warmUp=60, cdil=100, sigmatr=.25){
 
 # definition of output variables
 	# Exergy input

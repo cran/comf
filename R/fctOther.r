@@ -22,6 +22,10 @@ calctAdapt15251 <- function(trm=20){
 	data.frame(tAdapt15251 = 0.33*trm + 18.8)
 	}
 	
+calctAdaptASHRAE <- function(tmmo){
+	data.frame(tAdaptASHRAE = 0.33*tmmo + 17.8)
+	}
+
 calctnAuliciems <- function(ta, tmmo){
 	data.frame(tnAuliciems = 9.22+0.48*ta+0.14*tmmo)
  } 

@@ -8,7 +8,7 @@
 # source("R/fctPMVPPD.r")
 # source("R/fct2Node.r")
 # source("R/fctdTNZ.r")
-# source("R/fctaTHB.r")
+# source("R/fctATHB.r")
 # source("R/fctHBxStSt.r")
 # source("R/fctHBxUnSt.r")
 # source("R/fctother.r")
@@ -156,7 +156,7 @@ calcComfInd <- function(lsCond, request="all"){
 								 ptsa = calcPtsa(ta[i], tr[i], vel[i], rh[i], clo[i], met[i], wme[i], pb[i], ltime[i], ht[i], wt[i], tu[i], asCoeff[i]), 
 								 ptse = calcPtse(ta[i], tr[i], vel[i], rh[i], clo[i], met[i], wme[i], pb[i], ltime[i], ht[i], wt[i], tu[i], esCoeff[i], asv[i]), 
 								 pmvadj = calcpmvadj(ta[i], tr[i], vel[i], rh[i], clo[i], met[i]), 
-								 HBxst = calcHbExsteady(ta[i], tr[i], rh[i], vel[i], clo[i], met[i], tao[i], rho[i], frad[i], eps[i], ic[i], ht[i], wt[i], tcrI[i], tskI[i], basMet[i], warmUp[i], cdil[i], sigmatr[i])[33],
+								 HBxst = calcHbExSteady(ta[i], tr[i], rh[i], vel[i], clo[i], met[i], tao[i], rho[i], frad[i], eps[i], ic[i], ht[i], wt[i], tcrI[i], tskI[i], basMet[i], warmUp[i], cdil[i], sigmatr[i])[33],
 								 humidex = calcHumx(ta[i], rh[i])
 
 								 
@@ -302,7 +302,7 @@ calcComfInd <- function(lsCond, request="all"){
 					
 				} else if (request[nparam] == "HBxst"){
 					
-					comfortData <- data.frame(calcHbExsteady(ta[i], tr[i], rh[i], vel[i], clo[i], met[i], tao[i], rho[i], frad[i], eps[i], ic[i], ht[i], wt[i], tcrI[i], tskI[i], basMet[i], warmUp[i], cdil[i], sigmatr[i]))		
+					comfortData <- data.frame(calcHbExSteady(ta[i], tr[i], rh[i], vel[i], clo[i], met[i], tao[i], rho[i], frad[i], eps[i], ic[i], ht[i], wt[i], tcrI[i], tskI[i], basMet[i], warmUp[i], cdil[i], sigmatr[i]))		
 					giveDat <- with(comfortData, get("xconss"))
 					if (nparam == 1){
 						giveDatas<-giveDat

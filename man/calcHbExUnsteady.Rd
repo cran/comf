@@ -138,7 +138,7 @@ According to Gagge's paper (1973), the value of 'cdil' may vary between 75 and 2
 %% ~make other sections like warning with \section{warning }{....} ~
 
 \seealso{
-see also \code{\link{calcComfInd}}, \code{\link{calcHbExsteady}}
+see also \code{\link{calcComfInd}}, \code{\link{calcHbExSteady}}
 }
 \examples{
 ## Define environmental parameters

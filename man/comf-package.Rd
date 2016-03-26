@@ -11,8 +11,8 @@ This package contains several functions to calculate a series of comfort indices
 \tabular{ll}{
 	Element \tab Description  \cr
 	"all" \tab Calculation of all indices described below  \cr
-	"pmv" \tab Predicted mean vote  \cr
-	"ppd" \tab Predicted precentage dissatisfied \cr
+	"pmv" \tab Predicted mean vote (PMV) \cr
+	"ppd" \tab Predicted precentage dissatisfied (PPD) \cr
 	"tnHumphreysNV" \tab Neutral temperature in naturally ventilated buildings according to Humphreys 1978 \cr
 	"tnHumphreysAC" \tab Neutral temperature in climate-controlled buildings according to Humphreys 1978 \cr
 	"tnAuliciems" \tab Neutral temperature according to Auliciems 1981 \cr
@@ -23,7 +23,7 @@ This package contains several functions to calculate a series of comfort indices
 	"ATHBpts" \tab Adaptive thermal heat balance vote based on set \cr
 	"apmv" \tab Adaptive predicted mean vote according to Yao et al. \cr
 	"ptsa" \tab Adaptive predicted thermal sensation vote according to Gao et al. \cr
-	"epmv" \tab pmv adjusted with expectancy factor based on Fanger and toftum \cr
+	"epmv" \tab PMV adjusted with expectancy factor based on Fanger and toftum \cr
 	"ptse" \tab Predicted thermal sensation vote based on set and adjusted with expectancy factor according to Gao et al. \cr
 	"set" \tab standard effective temperature based on two node model by Gagge et al. \cr
 	"et" \tab Effective temperature based on two node model by Gagge et al. \cr
@@ -32,15 +32,15 @@ This package contains several functions to calculate a series of comfort indices
 	"ps" \tab Predicted percentage satisfied with the level of air movement \cr
 	"pd" \tab Predicted percentage dissatisfied due to draft \cr
 	"pts" \tab Predicted thermal sensation vote based on set \cr
-	"HBxst" \tab Human body exergy consumPtion rate using steady state method
+	"HBxst" \tab Human body exergy consumption rate using steady state method
 }
 }
 \details{
 \tabular{ll}{
 Package: \tab comf\cr
 Type: \tab Package\cr
-Version: \tab 1.0\cr
-Date: \tab 2016-02-06\cr
+Version: \tab 0.1.2\cr
+Date: \tab 2016-03-15\cr
 License: \tab GPL-2\cr
 LazyLoad: \tab yes\cr
 }

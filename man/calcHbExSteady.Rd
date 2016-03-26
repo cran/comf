@@ -1,13 +1,13 @@
-\name{calcHbExsteady}
-\alias{calcHbExsteady}
+\name{calcHbExSteady}
+\alias{calcHbExSteady}
 \title{
 Calculates Human Body Exergy Consumption Rate Using Steady State Method
 }
 \description{
-\code{calcHbExsteady} calculates the human body exergy consumPtion rate using steady state method based on a set of environmental variables.
+\code{calcHbExSteady} calculates the human body exergy consumPtion rate using steady state method based on a set of environmental variables.
 }
 \usage{
-calcHbExsteady(ta, tr, rh, vel, clo, met, tao, rho, frad = 0.7, eps = 0.95, ic = 1.085, 
+calcHbExSteady(ta, tr, rh, vel, clo, met, tao, rho, frad = 0.7, eps = 0.95, ic = 1.085, 
 ht = 171, wt = 70, tcr = 37, tsk = 36, basMet = 58.2, warmUp = 60, cdil = 100, 
 sigmatr = 0.25)
 }
@@ -134,6 +134,6 @@ see also \code{\link{calcComfInd}}, \code{\link{calcHbExUnsteady}}
 }
 \examples{
 ## Calculation of human body exergy consumPtion rate
-calcHbExsteady(22, 24, 50, .1, .8, 1.2, 5, 80)
+calcHbExSteady(22, 24, 50, .1, .8, 1.2, 5, 80)
 }
 \keyword{ manip }

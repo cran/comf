@@ -99,7 +99,7 @@ Sophia Mueller and Marcel Schweiker
 In case one of the variables is not given, a standard value will be taken from a list (see \code{\link{createCond}} for details.
 }
 \seealso{
-see also \code{\link{calcPMVPPD}}, \code{\link{calc2Node}}, \code{\link{calcHbExsteady}}, \code{\link{calcATHB}}, \code{\link{calcdTNZ}}, \code{\link{calcpmvadj}}, \code{\link{calcPtsadj}}, \code{\link{calctadapt}} 
+see also \code{\link{calcPMVPPD}}, \code{\link{calc2Node}}, \code{\link{calcHbExSteady}}, \code{\link{calcATHB}}, \code{\link{calcdTNZ}}, \code{\link{calcpmvadj}}, \code{\link{calcPtsadj}}, \code{\link{calctadapt}} 
 }
 \examples{
 ## Creating list with all values

@@ -76,12 +76,14 @@ The value of \code{obj} defines whether the function will use the version presen
 \item{pts}{Predicted thermal sensation vote based on set}
 }
 \references{
-Gagge, A. P., Fobelets, A. P. and Berglund, L. G. A standard predictive index of human response to the thermal environment, ASHRAE transactions, 1986, 92 (2B), 709-731.
-
 ASHRAE Standard 55-2013. Thermal environmental conditions for human occupancy. American society of heating, Refrigerating and Air-Conditioning Engineering, Atlanta, USA, 2013.
+
+Fountain, M. & Huizenga, C. A thermal sensation model for use by the engineering profession ASHRAE RP-781 Final report, 1995
+
+Gagge, A. P., Fobelets, A. P. and Berglund, L. G. A standard predictive index of human response to the thermal environment, ASHRAE transactions, 1986, 92 (2B), 709-731.
 }
 \author{
-The translation of the formula given in Gagge et al. into VBA-code was done by M. Shukuya, the translation into R-language and comparison with ASHRAE 55-2013 conducted by Marcel Schweiker.
+The code for \code{calc2Node} is based on the code in BASIC and C++ presented by Fountain and Huizenga (1995). The translation into R-language and comparison with ASHRAE 55-2013 conducted by Marcel Schweiker.
 }
 \note{
 In case one of the variables is not given, a standard value will be taken from a list (see \code{\link{createCond}} for details.

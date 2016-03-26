@@ -11,8 +11,7 @@
 #   - calc2Node (ta, vel, rh, clo=.5, met=1, wme=0, pb=760, ltime=60, ht=166, wt=70)
 #       returns et, set, tsens, disc, ps, pd
 #
-# v1.0 done by Marcel Schweiker
-
+# The code for calc2Node is based on the code in BASIC and C++ presented by Fountain and Huizenga. 
 
 # Function: Two Node model ################
 ###########################################
@@ -42,10 +41,10 @@ calc2Node <- function(ta, tr, vel, rh, clo = .5, met = 1, wme = 0, pb = 760, lti
   skbf  <- skbfn
   mshiv <- 0
   alfa  <- .1
-  rm    <- m
+  rmm    <- m
   esk   <- .1 * met
   
-  # UNIT CONVERsIONs (from input variables)
+  # UNIT CONVERSIONS (from input variables)
   atm   <- pb / 760 # input unit is torr!
   timeh <- ltime / 60 
   rcl   <- .155 * clo 
@@ -63,10 +62,10 @@ calc2Node <- function(ta, tr, vel, rh, clo = .5, met = 1, wme = 0, pb = 760, lti
   
   chc <- 3 * atm  ^ .53
   if(obj == "set"){ # not used for calculation of adjusted pmv
-	  if(rm/58.2 <.85){
+	  if(rmm/58.2 <.85){
 		chca<-0
 	  } else {
-		chca<-5.66*((rm/58.2-.85)*atm) ^ .39
+		chca<-5.66*((rmm/58.2-.85)*atm) ^ .39
 	  }
   }
   chcv <- 8.600001 * (vel * atm) ^ .53
@@ -83,7 +82,7 @@ calc2Node <- function(ta, tr, vel, rh, clo = .5, met = 1, wme = 0, pb = 760, lti
   tcl <- top + (tsk - top) / (ctc * (ra + rcl))
   tim <- 1
   
-  ################# BEGIN ITEraTION
+  ################# BEGIN ITERATION
   
   # tcl and chr are solved iteritively using: H(tsk - to) <- ctc(tcl - to), 
   # where H <- 1/(ra + rcl) and ra <- 1/facl*ctc
@@ -195,7 +194,7 @@ calc2Node <- function(ta, tr, vel, rh, clo = .5, met = 1, wme = 0, pb = 760, lti
     }
     esk   <- ersw + edif
     mshiv <- 19.4 * colds * coldc
-    m     <- rm + mshiv
+    m     <- rmm + mshiv
     alfa  <- .0417737 + .7451833 / (skbf + .585417)
     #GOsUB2680 'screen output
     #IF OUtopT<-1 TheN GOsUB 3900 'minute-by-minute hcopy output
@@ -203,7 +202,7 @@ calc2Node <- function(ta, tr, vel, rh, clo = .5, met = 1, wme = 0, pb = 760, lti
   }
   
   #####################################################################
-  # CALCULATE COmFORT INDIces
+  # CALCULATE COMFORT INDICES
   #####################################################################
   
   # Define new heat flow terms, coeffs, and abbreviations
@@ -245,7 +244,7 @@ calc2Node <- function(ta, tr, vel, rh, clo = .5, met = 1, wme = 0, pb = 760, lti
   
   # et* (standardized humidity/ actual do, pb, and chc)
   # determined using Newton's iterative solution
-  # fnerre is defined in GENEraL setuP section above
+  # fnerre is defined in general setup section above
   delta <- .0001
   xold <- tsk - hsk / hd #lower bound for et*
   

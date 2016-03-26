@@ -1,0 +1,7 @@
+comf v0.1.2 (Release date: 2016-03-28)
+==============
+
+Changes:
+
+* Added data set with exemplary field data
+* Changed calcMeanBias to calcBias and added output of standard deviation and standard error
