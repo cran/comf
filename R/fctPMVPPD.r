@@ -76,8 +76,21 @@ calcPMVPPD <- function(ta, tr, vel, rh, clo=.5, met=1, wme=0, basMet=58.15){
   ppd <- 100 - 95 * exp(-.03353 * pmv ^ 4 - .2179 * pmv ^ 2)
   data.frame(pmv, ppd)
 }
-# End calcpmv ##############################
+# End calcPMVPPD ##############################
 ###########################################
+
+## calc pmv
+calcPMV <- function(ta, tr, vel, rh, clo=.5, met=1, wme=0, basMet=58.15){
+calcPMVPPD(ta, tr, vel, rh, clo, met, wme, basMet)$pmv
+}
+## End calc pmv
+
+## calc ppd
+calcPPD <- function(ta, tr, vel, rh, clo=.5, met=1, wme=0, basMet=58.15){
+calcPMVPPD(ta, tr, vel, rh, clo, met, wme, basMet)$ppd
+}
+## End calc ppd
+
 
 ## calc apmv ################################
 ## based on Yao et al.

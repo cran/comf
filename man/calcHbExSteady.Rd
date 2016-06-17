@@ -1,10 +1,13 @@
 \name{calcHbExSteady}
 \alias{calcHbExSteady}
+\alias{HbExSteady}
+\alias{HBxst}
+\alias{hbxst}
 \title{
 Calculates Human Body Exergy Consumption Rate Using Steady State Method
 }
 \description{
-\code{calcHbExSteady} calculates the human body exergy consumPtion rate using steady state method based on a set of environmental variables.
+\code{calcHbExSteady} calculates the human body exergy consumption rate  in W/m2 using steady state method based on a set of environmental variables.
 }
 \usage{
 calcHbExSteady(ta, tr, rh, vel, clo, met, tao, rho, frad = 0.7, eps = 0.95, ic = 1.085, 
@@ -110,8 +113,8 @@ Exergy output
   \item{xouttotaLs }{total exergy output}
 
 Exergy balance
-  \item{xconss }{total exergy consumPtion}
-  \item{xConsumption }{total exergy consumPtion}
+  \item{xconss }{total exergy consumption}
+  \item{xConsumption }{total exergy consumption}
 
 Additional values
   \item{tsks }{Calculated skin temperature}
@@ -124,7 +127,7 @@ Schweiker, M., Kolarik, J., Dovjak, M. and Shukuya, M. Unsteady-state human-body
 Shukuya, M. Calculation of human body-core and skin-layer temperatures under unsteady-state conditions-for unsteady-state human-body exergy analysis-, internal report of exergy-research group, Tech. rep., KIT/TCU, 2015.
 }
 \author{
-This function is based on a VBA code developed by masanori Shukuya. transformation of VBA-code and Excel procedures into R syntax by Marcel Schweiker.
+This function is based on a VBA code developed by Masanori Shukuya. transformation of VBA-code and Excel procedures into R syntax by Marcel Schweiker.
 }
 \note{
 According to Gagge's paper (1973), the value of 'cdil' may vary between 75 and 225 and 'sigma-tr' between 0.25 and 0.75. There is a note in the appendix of his paper saying two things:  1) whatever the values taken for cdil and sigma-tr, there must be no significant change in resulting thermal equilibrium. But, the values taken for cdil and sigmaTr do affect time to equilibrium. According to the analysis of schweiker et al. (2015), the values of 100 and .25 lead to the best fit of calculated and observed skin temperature. 
@@ -133,7 +136,16 @@ According to Gagge's paper (1973), the value of 'cdil' may vary between 75 and 2
 see also \code{\link{calcComfInd}}, \code{\link{calcHbExUnsteady}}
 }
 \examples{
-## Calculation of human body exergy consumPtion rate
+## Calculation of human body exergy consumption rate
 calcHbExSteady(22, 24, 50, .1, .8, 1.2, 5, 80)
+
+## Calculation of multiple values
+dfData <- data.frame(ta=c(20:25), tr=c(20:25))
+dfResult <- calcHbExSteady(22, 24, 50, .1, .8, 1.2, 5, 80) 
+for(i in 1:nrow(dfData)){
+dfResult[i,] <- calcHbExSteady(dfData$ta[i], dfData$tr[i], 50, .1, .5, 1.1, 5, 80)
+}
+
+
 }
 \keyword{ manip }

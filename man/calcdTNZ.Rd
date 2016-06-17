@@ -1,5 +1,7 @@
 \name{calcdTNZ}
 \alias{calcdTNZ}
+\alias{dTNZ}
+\alias{dtnz}
 \title{
 Calculating dTNZ, the Distance from the Thermoneutral Zone
 }
@@ -7,7 +9,8 @@ Calculating dTNZ, the Distance from the Thermoneutral Zone
 \code{calcdTNZ} calculates the distance from the thermoneutral zone, either skin temperature or room air related. 
 }
 \usage{
-calcdTNZ(ht, wt, age, gender, clo, vel, tsk, ta, met, deltaT = 0.1)
+calcdTNZ(ht, wt, age, gender, clo, vel, tskObs, taObs, met, rh, 
+deltaT = 0.1, fBasMet = "rosa", fSA = "duBois")
 }
 \arguments{
   \item{ht}{
@@ -20,7 +23,7 @@ a numeric value presenting body weight in [kg]
 a numeric value presenting the age in [years] 
 }
   \item{gender}{
-a numeric value presenting gender (female = 1, male = 2)
+a numeric value presenting sex (female = 1, male = 2)
 }
   \item{clo}{
 a numeric value presenting clothing insulation level in [clo]
@@ -28,17 +31,26 @@ a numeric value presenting clothing insulation level in [clo]
   \item{vel}{
 a numeric value presenting air velocity in [m/s] 
 }
-  \item{tsk}{
+  \item{tskObs}{
 a numeric value presenting actual mean skin temperature in [degree C]  
 }
-  \item{ta}{
+  \item{taObs}{
 a numeric value presenting air temperaturein [degree C] 
 }
   \item{met}{
 a numeric value presenting metabolic rate (activity related) in [met] 
 }
+  \item{rh}{
+a numeric value presenting realtive humidity in [%] 
+}
   \item{deltaT}{
 a numeric value presenting the resolution of the matrix to be used
+}
+  \item{fBasMet}{
+a string presenting the method of calculating basal metbolic rate. Needs to be one of "rosa", "harris", "miflin", or "fixed". Fixed will result in the value of 58.2 W/m2.
+}
+  \item{fSA}{
+a string presenting the method of calculating the surface area. Needs to be one of "duBois" or "mosteller".
 }
 }
 \value{
@@ -65,6 +77,6 @@ see also \code{\link{calcComfInd}}
 }
 \examples{
 ## Calculate all values
-calcdTNZ(171, 71, 45, 1, .6, .12, 37.8, 25.3, 1.1) 
+calcdTNZ(171, 71, 45, 1, .6, .12, 37.8, 25.3, 1.1, 50) 
 }
 \keyword{ manip }

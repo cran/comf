@@ -1,5 +1,28 @@
 \name{calc2Node}
 \alias{calc2Node}
+\alias{calcET}
+\alias{calcSET}
+\alias{calcTSens}
+\alias{calcDisc}
+\alias{calcPD}
+\alias{calcPS}
+\alias{calcPTS}
+\alias{2Node}
+\alias{Gagge}
+\alias{ET}
+\alias{SET}
+\alias{TSens}
+\alias{Disc}
+\alias{PD}
+\alias{PS}
+\alias{PTS}
+\alias{et}
+\alias{set}
+\alias{tsens}
+\alias{disc}
+\alias{pd}
+\alias{ps}
+\alias{pts}
 \title{
 Calculating Comfort Indices based on the 2-Node-Model
 }
@@ -8,6 +31,20 @@ Calculating Comfort Indices based on the 2-Node-Model
 }
 \usage{
 calc2Node(ta, tr, vel, rh, clo = 0.5, met = 1, wme = 0, pb = 760, ltime = 60, ht = 171,
+ wt = 70, tu = 40, obj = "set", csw = 170, cdil = 120, cstr = 0.5)
+calcET(ta, tr, vel, rh, clo = 0.5, met = 1, wme = 0, pb = 760, ltime = 60, ht = 171,
+ wt = 70, tu = 40, obj = "set", csw = 170, cdil = 120, cstr = 0.5)
+calcSET(ta, tr, vel, rh, clo = 0.5, met = 1, wme = 0, pb = 760, ltime = 60, ht = 171,
+ wt = 70, tu = 40, obj = "set", csw = 170, cdil = 120, cstr = 0.5)
+calcTSens(ta, tr, vel, rh, clo = 0.5, met = 1, wme = 0, pb = 760, ltime = 60, ht = 171,
+ wt = 70, tu = 40, obj = "set", csw = 170, cdil = 120, cstr = 0.5)
+calcDisc(ta, tr, vel, rh, clo = 0.5, met = 1, wme = 0, pb = 760, ltime = 60, ht = 171,
+ wt = 70, tu = 40, obj = "set", csw = 170, cdil = 120, cstr = 0.5)
+calcPD(ta, tr, vel, rh, clo = 0.5, met = 1, wme = 0, pb = 760, ltime = 60, ht = 171,
+ wt = 70, tu = 40, obj = "set", csw = 170, cdil = 120, cstr = 0.5)
+calcPS(ta, tr, vel, rh, clo = 0.5, met = 1, wme = 0, pb = 760, ltime = 60, ht = 171,
+ wt = 70, tu = 40, obj = "set", csw = 170, cdil = 120, cstr = 0.5)
+calcPTS(ta, tr, vel, rh, clo = 0.5, met = 1, wme = 0, pb = 760, ltime = 60, ht = 171,
  wt = 70, tu = 40, obj = "set", csw = 170, cdil = 120, cstr = 0.5)
 }
 \arguments{
@@ -74,6 +111,7 @@ The value of \code{obj} defines whether the function will use the version presen
 \item{ps}{Predicted percentage satisfied with the level of air movement}
 \item{pd}{Predicted percentage dissatisfied due to draft}
 \item{pts}{Predicted thermal sensation vote based on set}
+The other functions return a single index, e.g. code(calcSET) returns the standard effective temperature.
 }
 \references{
 ASHRAE Standard 55-2013. Thermal environmental conditions for human occupancy. American society of heating, Refrigerating and Air-Conditioning Engineering, Atlanta, USA, 2013.
@@ -92,7 +130,16 @@ In case one of the variables is not given, a standard value will be taken from a
 see also \code{\link{calcComfInd}}, \code{\link{calcPtsadj}}
 }
 \examples{
-## Calculation of a single values.
+## Calculation of a single set of values.
 calc2Node(22, 25, .50, 50)
+
+## Using several rows of data:
+ta <- c(20,22,24)
+tr <- ta
+vel <- rep(.15,3)
+rh <- rep(50,3)
+
+maxLength <- max(sapply(list(ta, tr, vel, rh), length))
+SET <- sapply(seq(maxLength), function(x) { calcSET(ta[x], tr[x], vel[x], rh[x]) } ) 
 }
 \keyword{ manip }

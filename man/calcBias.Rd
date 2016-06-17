@@ -1,6 +1,9 @@
 \name{calcBias}
 \alias{calcBias}
 \alias{calcMeanBias}
+\alias{MeanBias}
+\alias{meanBias}
+\alias{bias}
 \alias{calcSdBias}
 \alias{calcSeBias}
 \title{

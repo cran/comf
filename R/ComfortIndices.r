@@ -17,7 +17,9 @@
 
 calcComfInd <- function(lsCond, request="all"){
 
-	requests = c("pmv", "ppd", "tnHumphreysNV", "tnHumphreysAC", "tAdapt15251", "dTNZ", "dTNZTa", "dTNZts", "ATHBpmv", "ATHBset", "ATHBpts", "apmv", "ptsa", "epmv", "ptse", "epCoeff", "apCoeff", "esCoeff", "asCoeff", "set", "et", "tsens", "disc", "pd", "ps", "pts", "HBxst", "pmvadj", "humidex")
+  lsCond <- ifelse(is.data.frame(lsCond), as.list(lsCond), lsCond)
+	
+  requests = c("pmv", "ppd", "tnHumphreysNV", "tnHumphreysAC", "tAdapt15251", "dTNZ", "dTNZTa", "dTNZts", "ATHBpmv", "ATHBset", "ATHBpts", "apmv", "ptsa", "epmv", "ptse", "epCoeff", "apCoeff", "esCoeff", "asCoeff", "set", "et", "tsens", "disc", "pd", "ps", "pts", "HBxst", "pmvadj", "humidex")
 	
 # (1)  
   met <- as.numeric(lsCond$met)
@@ -79,7 +81,7 @@ calcComfInd <- function(lsCond, request="all"){
 		} else if (request[nparam] == "tAdapt15251"){
 		paramsI <- c("trm")
 		} else if (request[nparam] == "dTNZ" | request[nparam] == "dTNZTa" | request[nparam] == "dTNZTs"){
-		paramsI <- c("ht", "wt", "age", "gender", "clo", "vel", "tsk", "ta", "met")
+		paramsI <- c("ht", "wt", "age", "gender", "clo", "vel", "tsk", "ta", "met", "rh")
 		} else if (request[nparam] == "ATHBpmv"){
 		paramsI <- c("ta", "tr", "vel", "rh", "met", "wme", "psych", "trm")
 		} else if (request[nparam] == "ATHBset" | request[nparam] == "ATHBpts"){
@@ -147,7 +149,7 @@ calcComfInd <- function(lsCond, request="all"){
 								 calctnHumphreysNV(tmmo[i]), 
 								 calctnHumphreysAC(tmmo[i]), 
 								 calctAdapt15251(trm[i]), 
-								 calcdTNZ(ht[i], wt[i], age[i], gender[i], clo[i], vel[i], tsk[i], ta[i], met[i], deltaT =.1), 
+								 calcdTNZ(ht[i], wt[i], age[i], gender[i], clo[i], vel[i], tsk[i], ta[i], met[i], rh[i], deltaT =.1), 
 								 ATHBpmv = calcATHBpmv(trm[i], psych[i], ta[i], tr[i], vel[i], rh[i], met[i], wme[i]), 
 								 ATHBset = calcATHBset(trm[i], psych[i], ta[i], tr[i], vel[i], rh[i], met[i], wme[i], pb[i], ltime[i], ht[i], wt[i]), 
 								 ATHBpts = calcATHBpts(trm[i], psych[i], ta[i], tr[i], vel[i], rh[i], met[i], wme[i], pb[i], ltime[i], ht[i], wt[i]), 
@@ -200,7 +202,7 @@ calcComfInd <- function(lsCond, request="all"){
 					
 				} else if (request[nparam] == "dTNZ" | request[nparam] == "dTNZTa" | request[nparam] == "dTNZTs"){
 					
-					comfortData <- data.frame(calcdTNZ(ht[i], wt[i], age[i], gender[i], clo[i], vel[i], tsk[i], ta[i], met[i]))		
+					comfortData <- data.frame(calcdTNZ(ht[i], wt[i], age[i], gender[i], clo[i], vel[i], tsk[i], ta[i], met[i], rh[i]))		
 					giveDat <- with(comfortData, get(request[nparam]))
 					if (nparam == 1){
 						giveDatas<-giveDat

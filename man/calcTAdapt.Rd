@@ -5,6 +5,13 @@
 \alias{calctnAuliciems}
 \alias{calctnHumphreysNV}
 \alias{calctnHumphreysAC}
+\alias{tadapt}
+\alias{tAdapt}
+\alias{tAdapt15251}
+\alias{tAdaptASHRAE}
+\alias{tnAuliciems}
+\alias{tnHumphreysNV}
+\alias{tnHumphreysAC}
 \title{
 Calculating Adaptive Comfort Temperatures or Neutral Temperatures
 }

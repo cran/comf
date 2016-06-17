@@ -1,13 +1,15 @@
-\name{calctroin}
-\alias{calctroin}
+\name{calcTroin}
+\alias{calcTroin}
+\alias{Troin}
+\alias{troin}
 \title{
 Calculation of Radiative and Operative Temperature
 }
 \description{
-The functions \code{calctroin} calculates radiative and operative temperature based on air temperature, globe temperature, air velocity and metabolic rate. Globe temperature needs to be measured using a standard globe with a diameter of 0.15m and an emissivity of .95 (black coloured).
+The functions \code{calcTroin} calculates radiative and operative temperature based on air temperature, globe temperature, air velocity and metabolic rate. Globe temperature needs to be measured using a standard globe with a diameter of 0.15m and an emissivity of .95 (black coloured).
 }
 \usage{
-calctroin(vel, tg, ta, met)
+calcTroin(vel, tg, ta, met)
 }
 \arguments{
   \item{vel}{
@@ -27,7 +29,7 @@ numeric value or vector presenting the metabolic rate in [met]
 Calculation of the radiative temperature is based on ISO 7726:2001, equation (9). Calculation of operative temperature is based on ISO 7726:2001, Appendix G.3. The adjustment of air velocity to present relative air velocity based on metabolic rate is based on ISO 7730:2005 Appendix C.2.
 }
 \value{
-\code{calctroin} returns a data.frame with radiative and operative temperature.
+\code{calcTroin} returns a data.frame with radiative and operative temperature.
 }
 \references{
 IsO 7726 Ergonomics of the Thermal Environment, Instruments for measuring Physical Quantities Geneva: International standard Organization, 1998
@@ -45,7 +47,7 @@ vel <- rep(.1,5)  # vector with air velocities
 met <- rep(1.1,5) # vector with metabolic rates
 tg <- 25:29       # vector with globe temperature values
 
-calctroin(vel, tg, ta, met)
+calcTroin(vel, tg, ta, met)
 
 }
 \keyword{ manip }

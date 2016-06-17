@@ -1,8 +1,16 @@
 \name{calcATHB}
+\alias{ATHB}
+\alias{athb}
 \alias{calcATHB}
 \alias{calcATHBpmv}
 \alias{calcATHBset}
 \alias{calcATHBpts}
+\alias{ATHBpmv}
+\alias{ATHBset}
+\alias{ATHBpts}
+\alias{athbpmv}
+\alias{athbset}
+\alias{athbpts}
 \title{
 Calculation of Adaptive Thermal Heat Balance Indices
 }

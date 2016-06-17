@@ -328,6 +328,37 @@ calc2Node <- function(ta, tr, vel, rh, clo = .5, met = 1, wme = 0, pb = 760, lti
   output
 }
 
+calcET <- function(ta, tr, vel, rh, clo = .5, met = 1, wme = 0, pb = 760, ltime = 60, ht = 171, wt = 70, tu = 40, obj = "set", csw = 170, cdil = 120, cstr = .5){
+calc2Node(ta, tr, vel, rh, clo, met, wme, pb, ltime, ht, wt, tu, obj, csw, cdil, cstr)$et
+}
+
+calcSET <- function(ta, tr, vel, rh, clo = .5, met = 1, wme = 0, pb = 760, ltime = 60, ht = 171, wt = 70, tu = 40, obj = "set", csw = 170, cdil = 120, cstr = .5){
+calc2Node(ta, tr, vel, rh, clo, met, wme, pb, ltime, ht, wt, tu, obj, csw, cdil, cstr)$set
+}
+
+calcTSens <- function(ta, tr, vel, rh, clo = .5, met = 1, wme = 0, pb = 760, ltime = 60, ht = 171, wt = 70, tu = 40, obj = "set", csw = 170, cdil = 120, cstr = .5){
+calc2Node(ta, tr, vel, rh, clo, met, wme, pb, ltime, ht, wt, tu, obj, csw, cdil, cstr)$tsens
+}
+
+calcDisc <- function(ta, tr, vel, rh, clo = .5, met = 1, wme = 0, pb = 760, ltime = 60, ht = 171, wt = 70, tu = 40, obj = "set", csw = 170, cdil = 120, cstr = .5){
+calc2Node(ta, tr, vel, rh, clo, met, wme, pb, ltime, ht, wt, tu, obj, csw, cdil, cstr)$disc
+}
+
+calcPD <- function(ta, tr, vel, rh, clo = .5, met = 1, wme = 0, pb = 760, ltime = 60, ht = 171, wt = 70, tu = 40, obj = "set", csw = 170, cdil = 120, cstr = .5){
+calc2Node(ta, tr, vel, rh, clo, met, wme, pb, ltime, ht, wt, tu, obj, csw, cdil, cstr)$pd
+}
+
+calcPS <- function(ta, tr, vel, rh, clo = .5, met = 1, wme = 0, pb = 760, ltime = 60, ht = 171, wt = 70, tu = 40, obj = "set", csw = 170, cdil = 120, cstr = .5){
+calc2Node(ta, tr, vel, rh, clo, met, wme, pb, ltime, ht, wt, tu, obj, csw, cdil, cstr)$ps
+}
+
+calcPTS <- function(ta, tr, vel, rh, clo = .5, met = 1, wme = 0, pb = 760, ltime = 60, ht = 171, wt = 70, tu = 40, obj = "set", csw = 170, cdil = 120, cstr = .5){
+calc2Node(ta, tr, vel, rh, clo, met, wme, pb, ltime, ht, wt, tu, obj, csw, cdil, cstr)$pts
+}
+
+
+
+
  
 ## calc aset ################################
 ## based on Gao et al.

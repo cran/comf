@@ -1,15 +1,22 @@
 \name{calcPMVPPD}
 \alias{calcPMVPPD}
 \alias{calcPMV}
+\alias{PMV}
 \alias{calcPPD}
+\alias{PPD}
+\alias{pmv}
+\alias{ppd}
+\alias{Fanger}
 \title{
 Calculating PMV and PPD
 }
 \description{
-\code{calcPMVPPD} calculates pmv and ppd indices according to Fanger.
+Functions to calculates PMV and/or PPD indices according to Fanger.
 }
 \usage{
 calcPMVPPD(ta, tr, vel, rh, clo = 0.5, met = 1, wme = 0, basMet = 58.15)
+calcPMV(ta, tr, vel, rh, clo = 0.5, met = 1, wme = 0, basMet = 58.15)
+calcPPD(ta, tr, vel, rh, clo = 0.5, met = 1, wme = 0, basMet = 58.15)
 }
 \arguments{
   \item{ta}{
@@ -38,13 +45,14 @@ a numeric value presenting basal metabolic rate [w/m2]
 }
 }
 \details{
-All variables must have the same length 1. For the calculation of several values use function \code{calcComfInd}.
-Note that the adjustments in the value for basMet need to made with great cautiousness as the pmv calculation is an empirical model and might not be valid for other values of basMet than the one commonly used.
+All variables must have the same length 1. For the calculation of several values use function \code{calcComfInd} or a loop.
+Note that the adjustments in the value for basMet need to be made with great cautiousness as the PMV calculation is an empirical model and might not be valid for other values of basMet than the one commonly used.
 }
 \value{
 \code{calcPMVPPD} returns a data.frame with the following items:
 \item{pmv}{Predicted mean vote}
 \item{ppd}{Predicted percentage dissatisfied}
+\code{calcPMV} and \code{calcPPD} return a single value of PMV or PPD.
 }
 \references{
 Fanger, P. O. Thermal Comfort Analysis and Applications in Environmental Engineering McGraw-Hill, New York, 1970.
@@ -59,8 +67,17 @@ Code implemented in to R by Marcel Schweiker. Further contribution by Sophia Mue
 see also \code{\link{calcComfInd}}
 }
 \examples{
-## Calculating pmv
+## Calculating PMV and PPD
 calcPMVPPD(25, 20, .2, 50)
+
+## Using several rows of data:
+ta <- c(20,22,24)
+tr <- ta
+vel <- rep(.15,3)
+rh <- rep(50,3)
+
+maxLength <- max(sapply(list(ta, tr, vel, rh), length))
+PMV <- sapply(seq(maxLength), function(x) { calcPMV(ta[x], tr[x], vel[x], rh[x]) } ) 
 }
 
 \keyword{ manip }

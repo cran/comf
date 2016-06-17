@@ -1,5 +1,8 @@
 \name{calcAvgAcc}
 \alias{calcAvgAcc}
+\alias{AvgAcc}
+\alias{avgAcc}
+\alias{avgacc}
 \title{
 Calculating Average Accuracy between Predicted and Actual Thermal Sensation Vote
 }
@@ -27,7 +30,7 @@ Sokolova, M. and Lapalme, G. A systematic analysis of performance measures for c
 Marcel Schweiker
 }
 \note{
-The outcome heavily depends on the distribution of actual votes, i.e. in case most of the actual votes are in the same category, e.g. 'neutral', the average accuray is very high due to the fact that the number of TRUE negative predicted votes, i.e. is high as well. 
+The outcome heavily depends on the distribution of actual votes, i.e. in case most of the actual votes are in the same category, e.g. 'neutral', the average accuray is very high due to the fact that for the other categories the number of TRUE negative predicted votes is high as well. 
 }
 \seealso{
 see also \code{\link{calcTPRTSV}}, \code{\link{calcMeanBias}}

@@ -589,7 +589,7 @@ calcHbExUnsteady <- function(ta, tr, rh, vel, clo, met, tao, rho, frad = .7, eps
 		tsku, # skin temperature
 		tcru, # core temperature
 		wu, # skin wettedness
-		stringsasFactors=FALSE
+		stringsAsFactors=FALSE
 	)
 	
 	results

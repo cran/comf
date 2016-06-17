@@ -77,7 +77,7 @@ calcasCoeff <- function(lsCond){
 
 # CALCULATION of operative temperature for standard globe measurement according to DIN EN IsO 7726 Equation (9)
 
-calctroin <- function(vel, tg, ta, met){
+calcTroin <- function(vel, tg, ta, met){
 
 	ifelse(vel <= 0, 0, vel)
 	met<-as.numeric(met*58) #w/m2

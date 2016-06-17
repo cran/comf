@@ -2,6 +2,12 @@
 \alias{calcPtsadj}
 \alias{calcPtsa}
 \alias{calcPtse}
+\alias{Ptsadj}
+\alias{Ptsa}
+\alias{Ptse}
+\alias{ptsadj}
+\alias{ptsa}
+\alias{ptse}
 \title{
 Calculating the Predicted Thermal Sensation based on 2-Node Model adjusted for Adaptation or Expectancy
 }

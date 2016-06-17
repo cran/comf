@@ -1,5 +1,7 @@
 \name{calcTPRTSV}
 \alias{calcTPRTSV}
+\alias{TPR}
+\alias{tpr}
 \title{
 Calculating the True Positive Rate between Predicted and Actual Thermal Sensation Vote
 }

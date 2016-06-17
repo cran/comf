@@ -2,6 +2,11 @@
 \alias{calcpmvadj}
 \alias{calcaPMV}
 \alias{calcePMV}
+\alias{pmvadj}
+\alias{aPMV}
+\alias{ePMV}
+\alias{apmv}
+\alias{epmv}
 \title{
 Calculating Adjusted Predicted Mean Votes
 }

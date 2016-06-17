@@ -13,10 +13,10 @@
 #'   \item{ta}{air temperature [degree C]}
 #'   \item{tr}{radiant temperature [degree C] - same as ta}
 #'   \item{rh}{relative humidity [\%]}
-#'   \item{trrm}{running mean outdoor temperature [degree C]}
+#'   \item{trm}{running mean outdoor temperature [degree C]}
 #'   \item{clo}{clothing insulation level [CLO]}
-#'   \item{tout}{outdoor air temperature [degree C]}
-#'   \item{av}{indoor air velocity [m/s]}
+#'   \item{tao}{outdoor air temperature [degree C]}
+#'   \item{vel}{indoor air velocity [m/s]}
 #'   \item{met}{metabolic rate [MET]}
 #'   \item{asv}{actual thermal sensation vote on ASHRAE scale [ ]}
 #' }

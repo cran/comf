@@ -317,7 +317,7 @@ calcHbExSteady <- function(ta, tr, rh, vel, clo, met, tao, rho, frad = .7, eps =
 		tsks, # skin temperature
 		tcrs, # core temperature
 		ws, # skin wettedness
-		stringsasFactors=FALSE
+		stringsAsFactors=FALSE
 	)
 	
 	resultsst

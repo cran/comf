@@ -1,10 +1,10 @@
 \name{cutTSV}
 \alias{cutTSV}
 \title{
-Binning Thermal Sensation Votes
+Categorizing Thermal Sensation Votes
 }
 \description{
-\code{cutTSV} bins continuous thermal sensation votes.
+\code{cutTSV} converts continuous thermal sensation votes to categorical ones.
 }
 \usage{
 cutTSV(pred)
@@ -15,10 +15,10 @@ a numeric item or vector containing continuous thermal sensation votes coded fro
 }
 }
 \details{
-Binning is realized including all values lower and equal then -2.5 to be -3, higher than -2.5 and lower or equal -1.5 to be -2, and so on.
+Categorization is realized with intervals closed on the right, e.g. setting all values lower and equal then -2.5 to a value of -3, higher than -2.5 and lower or equal -1.5 to -2, and so on.
 }
 \value{
-\code{cutTSV} returns an item or a vector with binned thermal sensation votes.
+\code{cutTSV} returns an item or a vector with categorical thermal sensation votes.
 }
 \author{
 Marcel Schweiker
