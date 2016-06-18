@@ -1,9 +1,9 @@
-84efb47fdae9a6bebcfeec62d07a765d *DESCRIPTION
+4896db02d1e5a3efffd35de5e06047ff *DESCRIPTION
 7fa62904315ef90beefa5d649bc704e4 *NAMESPACE
-b3d9a1d532fead925edbc67c876dff4b *NEWS
-1e8b113c48ca6897ce6b9fb82daf75b2 *R/ComfortIndices.r
+d626eaa89a8a4ccdb9299bc4b2e80ee2 *NEWS
+627b4a51fbeb7956f978cf4bca70557a *R/ComfortIndices.r
 8034f15abd74851d1cca6f00eae7fe94 *R/dfField.R
-95c8c274d6ffa2ca2f2b7b90ac11eda3 *R/fct2Node.r
+6ffccc7eda55d503ef70a680adc91894 *R/fct2Node.r
 c0c82bf61a32368e1eef284a9063b11d *R/fctATHB.r
 6462d6f129567be4e3c6c1802345e993 *R/fctHBxStSt.r
 e95326d5c8242c6ed27733fb8038ef3c *R/fctHBxUnSt.r
@@ -12,7 +12,7 @@ e1214b141dbc875e1a236f26e4ac45d6 *R/fctOther.r
 fe45a66c7ba48c4808a4624dc5c50533 *R/fctPMVPPD.r
 f423982656adbae6165db18b0b5a2804 *R/fctdTNZ.r
 a69a7739751cc43747ca20cc57c7c5e4 *data/dfField.RData
-d49fe22f45c2e1169782785bc0c49be0 *man/calc2Node.Rd
+3b97d8ba4fb64fb65e0383d09dd810bd *man/calc2Node.Rd
 ebd5099dd93442146c3741ef3aee9077 *man/calcATHB.Rd
 31e787ffa216a9d6f34e5b160c868df4 *man/calcAvgAcc.Rd
 bf4e96ccdc608facb185fe86f0a93b51 *man/calcBias.Rd
@@ -29,7 +29,7 @@ c33aafbf5e52f444cdc4ad55e2bf3066 *man/calcPTSadj.Rd
 5139b807888a74df92f47260cc30a02e *man/calcTroin.Rd
 8321425f24bc56371ae7474278e4370d *man/calcdTNZ.Rd
 3f1df310500c5305a74dfede36e6c59c *man/comf-internal.Rd
-6a81aba7b0a4a28267f7c4fc22bb9382 *man/comf-package.Rd
+a3af8bfdd7c98b8cb00e2e6071d4abd7 *man/comf-package.Rd
 81dd81ba1427aba6678d0785c57b9c76 *man/createCond.Rd
 445e0879da1e2cd8c6a2b8065ee13543 *man/cutTSV.Rd
 d109b3e7ac880acbb8e470c039c1b884 *man/dfField.Rd

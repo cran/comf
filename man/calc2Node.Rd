@@ -23,6 +23,8 @@
 \alias{pd}
 \alias{ps}
 \alias{pts}
+\alias{calcPMVGagge}
+\alias{calcPMVStar}
 \title{
 Calculating Comfort Indices based on the 2-Node-Model
 }
@@ -45,6 +47,10 @@ calcPD(ta, tr, vel, rh, clo = 0.5, met = 1, wme = 0, pb = 760, ltime = 60, ht = 
 calcPS(ta, tr, vel, rh, clo = 0.5, met = 1, wme = 0, pb = 760, ltime = 60, ht = 171,
  wt = 70, tu = 40, obj = "set", csw = 170, cdil = 120, cstr = 0.5)
 calcPTS(ta, tr, vel, rh, clo = 0.5, met = 1, wme = 0, pb = 760, ltime = 60, ht = 171,
+ wt = 70, tu = 40, obj = "set", csw = 170, cdil = 120, cstr = 0.5)
+calcPMVGagge(ta, tr, vel, rh, clo = 0.5, met = 1, wme = 0, pb = 760, ltime = 60, ht = 171,
+ wt = 70, tu = 40, obj = "set", csw = 170, cdil = 120, cstr = 0.5)
+calcPMVStar(ta, tr, vel, rh, clo = 0.5, met = 1, wme = 0, pb = 760, ltime = 60, ht = 171,
  wt = 70, tu = 40, obj = "set", csw = 170, cdil = 120, cstr = 0.5)
 }
 \arguments{
@@ -111,6 +117,8 @@ The value of \code{obj} defines whether the function will use the version presen
 \item{ps}{Predicted percentage satisfied with the level of air movement}
 \item{pd}{Predicted percentage dissatisfied due to draft}
 \item{pts}{Predicted thermal sensation vote based on set}
+\item{pmvg}{Gagge's version of Fanger's PMV}
+\item{pmvstar}{Same as Fanger's PMV except that dry is calculated using SET* rather than the operative temperature}
 The other functions return a single index, e.g. code(calcSET) returns the standard effective temperature.
 }
 \references{

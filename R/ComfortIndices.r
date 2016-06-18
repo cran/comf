@@ -17,8 +17,10 @@
 
 calcComfInd <- function(lsCond, request="all"){
 
-  lsCond <- ifelse(is.data.frame(lsCond), as.list(lsCond), lsCond)
-	
+  #if(is.data.frame(lsCond)){
+	# lsCond <- as.list(lsCond)
+	#}
+	 
   requests = c("pmv", "ppd", "tnHumphreysNV", "tnHumphreysAC", "tAdapt15251", "dTNZ", "dTNZTa", "dTNZts", "ATHBpmv", "ATHBset", "ATHBpts", "apmv", "ptsa", "epmv", "ptse", "epCoeff", "apCoeff", "esCoeff", "asCoeff", "set", "et", "tsens", "disc", "pd", "ps", "pts", "HBxst", "pmvadj", "humidex")
 	
 # (1)  

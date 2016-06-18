@@ -308,14 +308,14 @@ calc2Node <- function(ta, tr, vel, rh, clo = .5, met = 1, wme = 0, pb = 760, lti
   disc <- 4.7 * (ersw - ecomf) / (emax - ecomf - edif)
   if (disc < 0){disc <- tsens}
   
-  # Calculate Gagge's version of Fanger's Predicted mean Vote (pmv)
+  # Calculate Gagge's version of Fanger's Predicted Mean Vote (PMV)
   pmvg <- (.303 * exp(-.036 * m) + .028) * (ereq - ecomf - edif)
   
   #Gagge's pmv.set is the same as Fanger's pmv except that dry is calculated
   #using set* rather than top
   dry2  <- hd.s * (tsk - set)
   ereq2 <- rn - cres - eres - dry2
-  pmv2  <- (.303 * exp(-.036 * m) + .028) * (ereq2 - ecomf - edif)
+  pmvstar  <- (.303 * exp(-.036 * m) + .028) * (ereq2 - ecomf - edif)
   
   # other indices related to air movement
   tue  <- (34 - ta) * (vel - 0.05) ^ 0.6223
@@ -323,7 +323,7 @@ calc2Node <- function(ta, tr, vel, rh, clo = .5, met = 1, wme = 0, pb = 760, lti
   ps   <- 100 * (1.13 * (top ^ .5) - .24 * top + 2.7 * (vel ^ .5) - .99 * vel)
   pts  <- .25 * set - 6.03
   
-  output <- data.frame(et, set, tsens, disc, pd, ps, pts)
+  output <- data.frame(et, set, tsens, disc, pd, ps, pts, pmvg, pmvstar)
   rm(et, set, tsens, disc, pd, ps, pts)
   output
 }
@@ -356,8 +356,13 @@ calcPTS <- function(ta, tr, vel, rh, clo = .5, met = 1, wme = 0, pb = 760, ltime
 calc2Node(ta, tr, vel, rh, clo, met, wme, pb, ltime, ht, wt, tu, obj, csw, cdil, cstr)$pts
 }
 
+calcPMVGagge <- function(ta, tr, vel, rh, clo = .5, met = 1, wme = 0, pb = 760, ltime = 60, ht = 171, wt = 70, tu = 40, obj = "set", csw = 170, cdil = 120, cstr = .5){
+calc2Node(ta, tr, vel, rh, clo, met, wme, pb, ltime, ht, wt, tu, obj, csw, cdil, cstr)$pmvg
+}
 
-
+calcPMVStar <- function(ta, tr, vel, rh, clo = .5, met = 1, wme = 0, pb = 760, ltime = 60, ht = 171, wt = 70, tu = 40, obj = "set", csw = 170, cdil = 120, cstr = .5){
+calc2Node(ta, tr, vel, rh, clo, met, wme, pb, ltime, ht, wt, tu, obj, csw, cdil, cstr)$pmvstar
+}
 
  
 ## calc aset ################################
