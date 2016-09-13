@@ -1,3 +1,12 @@
+comf v0.1.5 (Release date: 2016-09-13)
+==============
+
+Changes:
+
+* Added callibration tables from ISO 7730 for PMV and PPD and ASHRAE 55-2013 for SET
+* Added function to check package is running
+* Added vignette
+
 comf v0.1.4 (Release date: 2016-06-18)
 ==============
 

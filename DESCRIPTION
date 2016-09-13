@@ -1,8 +1,8 @@
 Package: comf
 Type: Package
 Title: Functions for Thermal Comfort Research
-Version: 0.1.4
-Date: 2016-06-16
+Version: 0.1.5
+Date: 2016-09-09
 Imports: plyr
 Author: Marcel Schweiker [aut, cre] and Sophia Mueller [aut] and Michael Kleber [ctr] and Boris Kingma [ctr] and Masanori Shukuya [ctr]
 Maintainer: Marcel Schweiker <marcel.schweiker@kit.edu>
@@ -10,7 +10,9 @@ Description: Functions to calculate various common and less common thermal comfo
 License: GPL-2
 LazyLoad: yes
 LazyData: true
-Packaged: 2016-06-17 23:23:02 UTC; marcel@FBTA
+Suggests: R.rsp
+VignetteBuilder: R.rsp
 NeedsCompilation: no
+Packaged: 2016-09-13 09:50:44 UTC; marcel@FBTA
 Repository: CRAN
-Date/Publication: 2016-06-18 10:05:15
+Date/Publication: 2016-09-13 14:48:15
