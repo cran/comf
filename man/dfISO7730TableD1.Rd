@@ -6,11 +6,11 @@
 Adjusted data from Table D1 of ISO 7730
 }
 \description{
-Callibration data for SET model (used for calculation of PMVadj) from ISO 7730 Table D1
+Callibration data for PMV / PPD model (used for calculation of PMVadj) from ISO 7730 Table D1
 }
 \usage{data(dfISO7730TableD1)}
 \format{
-  A data frame with 22 rows on the following 11 variables.
+  A data frame with 13 rows on the following 8 variables.
   \describe{
     \item{\code{ta}}{a numeric vector of air temperature [degree C]}
     \item{\code{tr}}{a numeric vector of radiant temperature [degree C]}

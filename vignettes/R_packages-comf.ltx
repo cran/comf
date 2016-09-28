@@ -68,7 +68,7 @@ This document describes the groups of functions included in this package. These 
 At this stage, 22 indices can be calculated. For a complete list, use:
 
 \begin{verbatim}
-  install.packages("comf_0.1.5.tar.gz", repos=NULL, type="source")
+  install.packages("comf_0.1.6.tar.gz", repos=NULL, type="source")
   library(comf)
   ?comf
 \end{verbatim}
@@ -164,14 +164,14 @@ The following example illustrates the usage for multiple input lines:
 \end{verbatim}
 
 \section{Comparing the values calculated by this package with existing validation tables}
-Included in this package are two tables to compare the output of computer programs with standard values. These are Table D.1 from ISO 7730 and Table C.1 from ASHRAE 55-2013.
+Included in this package are two tables to compare the output of computer programs with standard values. These are Table D.1 from ISO 7730 and Table G1-1 from ASHRAE 55-2013.
 
 \begin{verbatim}
   data(dfISO7730TableD1)
   head(dfISO7730TableD1)
 
-  data(dfASHRAETableC1)
-  head(dfASHRAETableC1)
+  data(dfASHRAETableG11)
+  head(dfASHRAETableG11)
 \end{verbatim}
 
 Note that one value differs from ISO 7730 Table D1 to the values in \textit{dfISO7730TableD1}, as a comparison with the calculation done by this package and the values given by the CBE Thermal Comfort Tool (ASHRAE approved) showed a different value. The difference is: 
@@ -180,19 +180,7 @@ Note that one value differs from ISO 7730 Table D1 to the values in \textit{dfIS
 \item row 7, PMV must be .36 (not .5) and PPD 8 (not 10) 
 \end{itemize}
 
-Also note that some values in \textit{dfASHRAETableC1} differ from those in ASHRAE 55-2013 Table C1, as a comparison with the calculation done by this package and the values given by the CBE Thermal Comfort Tool (ASHRAE approved) showed slightly adjusted values. The differences are: 
-\begin{itemize}
-\item row 6 should be 26.4 degree C not 26.2 
-\item row 7 should be 34.3 degree C not 33.6 
-\item row 9 should be 24.9 degree C not 24.4 
-\item row 12 should be 20.3 degree C not 20.4 
-\item row 15 should be 31.8 degree C not 31.9 
-\item row 18 should be 32.5 degree C not 32.6 
-\item row 19 should be 37.7 degree C not 38.0 
-\end{itemize}
-No changes have been made to the Fahrenheit values, which might be different as well.
-
-In addition, rows 21 and 22 can only be compared to the function \textit{calcSET} in case \textit{obj="pmvadj"} is chosen. The value of \textit{obj} defines whether the function will use the version presented in ASHRAE 55-2013 for adjustment of PMV (\textit{obj = "pmvadj"}), or the original code by Gagge to calculate the standard effective temperature (SET) (\textit{obj = "set"}). The reason is, that in the version presented in ASHRAE 55-2013, the lines of code related to self-generated convection are deleted. Therefore, a difference can be seen at higher values of met.  
+Also note that in \textit{dfASHRAETableG11} rows 21 and 22 can only be compared to the function \textit{calcSET} in case \textit{obj="pmvadj"} is chosen. The value of \textit{obj} defines whether the function will use the version presented in ASHRAE 55-2013 for adjustment of PMV (\textit{obj = "pmvadj"}), or the original code by Gagge to calculate the standard effective temperature (SET) (\textit{obj = "set"}). The reason is, that in the version presented in ASHRAE 55-2013, the lines of code related to self-generated convection are deleted. Therefore, a difference can be seen at higher values of met.  
 
 A comparison can look as follows
 
