@@ -42,9 +42,11 @@ calcComfInd <- function(lsCond, request="all"){
   gender <- as.numeric(lsCond$gender) # gender: 1=female; 2=male
   tsk <- as.numeric(lsCond$tsk)
   psych <- as.numeric(lsCond$psych)
-  apCoeff <- as.numeric(lsCond$apCoeff)
+  apCoeffc <- as.numeric(lsCond$apCoeffc)
+  apCoeffw <- as.numeric(lsCond$apCoeffw)
   epCoeff <- as.numeric(lsCond$epCoeff)
-  asCoeff <- as.numeric(lsCond$asCoeff)
+  asCoeffc <- as.numeric(lsCond$asCoeffc)
+  asCoeffw <- as.numeric(lsCond$asCoeffw)
   esCoeff <- as.numeric(lsCond$esCoeff)
   asv <- as.numeric(lsCond$asv)
   tao <- as.numeric(lsCond$tao)
@@ -60,12 +62,12 @@ calcComfInd <- function(lsCond, request="all"){
   sigmatr <- as.numeric(lsCond$sigmatr)
 
 # (2)  
-  l<-max(c(1, length(met), length(wme), length(pb), length(ltime), length(rh), length(clo), length(ta), length(tr), length(vel), length(ht), length(wt), length(tmmo), length(trm), length(tu), length(age), length(gender), length(vel), length(tsk), length(psych), length(apCoeff), length(epCoeff), length(asCoeff), length(esCoeff), length(asv), length(tao), length(rho), length(frad), length(eps), length(ic), length(tcrI), length(tskI), length(basMet), length(warmUp), length(cdil), length(sigmatr)))
+  l<-max(c(1, length(met), length(wme), length(pb), length(ltime), length(rh), length(clo), length(ta), length(tr), length(vel), length(ht), length(wt), length(tmmo), length(trm), length(tu), length(age), length(gender), length(vel), length(tsk), length(psych), length(apCoeffc), length(apCoeffw), length(epCoeff), length(asCoeffc), length(asCoeffw), length(esCoeff), length(asv), length(tao), length(rho), length(frad), length(eps), length(ic), length(tcrI), length(tskI), length(basMet), length(warmUp), length(cdil), length(sigmatr)))
   
   namesLsCond <- names(lsCond)
 
 # (3)  
-  paramsAll <- c("met", "wme", "pb", "ltime", "rh", "clo", "ta", "tr", "vel", "ht", "wt", "tmmo", "trm", "tu", "age", "gender", "tsk", "psych", "apCoeff", "epCoeff", "asCoeff", "esCoeff", "asv", "tao", "rho", "frad", "eps", "ic", "tcrI", "tskI", "basMet", "warmUp", "cdil", "sigmatr")
+  paramsAll <- c("met", "wme", "pb", "ltime", "rh", "clo", "ta", "tr", "vel", "ht", "wt", "tmmo", "trm", "tu", "age", "gender", "tsk", "psych", "apCoeffc", "apCoeffw", "epCoeff", "asCoeffc", "asCoeffw", "esCoeff", "asv", "tao", "rho", "frad", "eps", "ic", "tcrI", "tskI", "basMet", "warmUp", "cdil", "sigmatr")
   valsAll <-c(1, 0, 760, 60, 50, 0.5, 25, 25, 0.1, 170, 70, 15, 15, 40, 21, 1, 35, (-1.4), .293, .9, (-.2), 1.3, 1.5, 5, 70, .7, .95, 1.085, 37, 36, 58.2, 60, 100, .25)
   
   # creating list of necessary input values to check for consistency and missing values
@@ -89,9 +91,9 @@ calcComfInd <- function(lsCond, request="all"){
 		} else if (request[nparam] == "ATHBset" | request[nparam] == "ATHBpts"){
 		paramsI <- c("ta", "tr", "vel", "rh", "trm", "met", "wme", "pb", "ltime", "ht", "wt", "psych")
 		} else if (request[nparam] == "apmv"){
-		paramsI <- c("ta", "tr", "vel", "rh", "clo", "met", "wme", "apCoeff")
+		paramsI <- c("ta", "tr", "vel", "rh", "clo", "met", "wme", "apCoeffc", "apCoeffw")
 		} else if (request[nparam] == "ptsa"){
-		paramsI <- c("ta", "tr", "vel", "rh", "clo", "met", "wme", "pb", "ltime", "ht", "wt", "asCoeff")
+		paramsI <- c("ta", "tr", "vel", "rh", "clo", "met", "wme", "pb", "ltime", "ht", "wt", "asCoeffc", "asCoeffw")
 		} else if (request[nparam] == "epmv"){
 		paramsI <- c("ta", "tr", "vel", "rh", "clo", "met", "wme", "epCoeff")
 		} else if (request[nparam] == "ptse"){
@@ -155,9 +157,9 @@ calcComfInd <- function(lsCond, request="all"){
 								 ATHBpmv = calcATHBpmv(trm[i], psych[i], ta[i], tr[i], vel[i], rh[i], met[i], wme[i]), 
 								 ATHBset = calcATHBset(trm[i], psych[i], ta[i], tr[i], vel[i], rh[i], met[i], wme[i], pb[i], ltime[i], ht[i], wt[i]), 
 								 ATHBpts = calcATHBpts(trm[i], psych[i], ta[i], tr[i], vel[i], rh[i], met[i], wme[i], pb[i], ltime[i], ht[i], wt[i]), 
-								 apmv = calcaPMV(ta[i], tr[i], vel[i], rh[i], clo[i], met[i], wme[i], apCoeff[i]), 
+								 apmv = calcaPMV(ta[i], tr[i], vel[i], rh[i], clo[i], met[i], wme[i], apCoeffc[i], apCoeffw[i]), 
 								 epmv = calcePMV(ta[i], tr[i], vel[i], rh[i], clo[i], met[i], wme[i], epCoeff[i]), 
-								 ptsa = calcPtsa(ta[i], tr[i], vel[i], rh[i], clo[i], met[i], wme[i], pb[i], ltime[i], ht[i], wt[i], tu[i], asCoeff[i]), 
+								 ptsa = calcPtsa(ta[i], tr[i], vel[i], rh[i], clo[i], met[i], wme[i], pb[i], ltime[i], ht[i], wt[i], tu[i], asCoeffc[i], asCoeffw[i]), 
 								 ptse = calcPtse(ta[i], tr[i], vel[i], rh[i], clo[i], met[i], wme[i], pb[i], ltime[i], ht[i], wt[i], tu[i], esCoeff[i]), 
 								 pmvadj = calcpmvadj(ta[i], tr[i], vel[i], rh[i], clo[i], met[i]), 
 								 HBxst = calcHbExSteady(ta[i], tr[i], rh[i], vel[i], clo[i], met[i], tao[i], rho[i], frad[i], eps[i], ic[i], ht[i], wt[i], tcrI[i], tskI[i], basMet[i], warmUp[i], cdil[i], sigmatr[i])[33],
@@ -233,14 +235,14 @@ calcComfInd <- function(lsCond, request="all"){
 				
 				} else if (request[nparam] == "apmv"){
 			
-					giveDat <- data.frame(calcaPMV(ta[i], tr[i], vel[i], rh[i], clo[i], met[i], wme[i], apCoeff[i]))
+					giveDat <- data.frame(calcaPMV(ta[i], tr[i], vel[i], rh[i], clo[i], met[i], wme[i], apCoeffc[i], apCoeffw[i]))
 					if (nparam == 1){
 						giveDatas<-giveDat
 					} else {giveDatas<-cbind(giveDatas, giveDat)}
 
 				} else if (request[nparam] == "ptsa"){
 			
-					giveDat <- data.frame(calcPtsa(ta[i], tr[i], vel[i], rh[i], clo[i], met[i], wme[i], pb[i], ltime[i], ht[i], wt[i], tu[i], asCoeff[i]))
+					giveDat <- data.frame(calcPtsa(ta[i], tr[i], vel[i], rh[i], clo[i], met[i], wme[i], pb[i], ltime[i], ht[i], wt[i], tu[i], asCoeffc[i], asCoeffw[i]))
 					if (nparam == 1){
 						giveDatas<-giveDat
 					} else {giveDatas<-cbind(giveDatas, giveDat)}
@@ -369,9 +371,11 @@ createCond <- function(a = TRUE){
 	gender 	<- 1    # gender (female = 1)
 	tsk   	<- 35   # mean skin temperature [degree C]
 	psych 	<- (-1.4) # factor related to fixed effect on perceived control
-	apCoeff <- .293 # adaptive coefficient for pmv
+	apCoeffc <- (-.125) # adaptive coefficient for pmv cool side
+	apCoeffw <- .293 # adaptive coefficient for pmv warm side
 	epCoeff <- .9   # expectancy factor for pmv
-	asCoeff <- (.2) # adaptive coefficient for set
+	asCoeffc <- (-.2) # adaptive coefficient for set cool side
+	asCoeffw <- (.2) # adaptive coefficient for set warm side
 	esCoeff <- 1.3   # expectancy factor for set
 	asv     <- 1.5  # actual sensation vote (0 = neutral)
 	tao		<- 5 # outdoor air temperature
@@ -390,7 +394,7 @@ createCond <- function(a = TRUE){
     print("For using the function 'calcComfInd', you may edit the values in that list and use this one as parameter value or create one on your own.")
 
 # (8)    
-    list(ta = ta, tr = tr, vel = vel, rh = rh, clo = clo, met = met, wme = wme, tu = tu, tmmo = tmmo, ltime = ltime, pb = pb, wt = wt, ht = ht, trm = trm, age = age, gender = gender, tsk = tsk, psych = psych, apCoeff = apCoeff, epCoeff = epCoeff, asCoeff = asCoeff, esCoeff = esCoeff, asv = asv, tao = tao, rho = rho, frad = frad, eps = eps, ic = ic, tcrI = tcrI, tskI = tskI, basMet = basMet, warmUp = warmUp, cdil = cdil, sigmatr = sigmatr)
+    list(ta = ta, tr = tr, vel = vel, rh = rh, clo = clo, met = met, wme = wme, tu = tu, tmmo = tmmo, ltime = ltime, pb = pb, wt = wt, ht = ht, trm = trm, age = age, gender = gender, tsk = tsk, psych = psych, apCoeffc = apCoeffc, apCoeffw = apCoeffw, epCoeff = epCoeff, asCoeffc = asCoeffc, asCoeffw = asCoeffw, esCoeff = esCoeff, asv = asv, tao = tao, rho = rho, frad = frad, eps = eps, ic = ic, tcrI = tcrI, tskI = tskI, basMet = basMet, warmUp = warmUp, cdil = cdil, sigmatr = sigmatr)
     
   } else {
 # (9)
@@ -412,9 +416,11 @@ createCond <- function(a = TRUE){
 	gender 	<- NA # gender (female = 1)
 	tsk   	<- NA # mean skin temperature [degree C]
 	psych 	<- NA # factor related to fixed effect on perceived control
-	apCoeff  <- NA # adaptive coefficient
+	apCoeffc  <- NA # adaptive coefficient cool side
+	apCoeffw  <- NA # adaptive coefficient warm side
 	epCoeff  <- NA # expectancy factor
-	asCoeff  <- NA # adaptive coefficient for set
+	asCoeffc  <- NA # adaptive coefficient for set cool side
+	asCoeffw  <- NA # adaptive coefficient for set warm side
 	esCoeff  <- NA  # expectancy factor for set
 	asv     <- NA # actual sensation vote (0 = neutral)
 	tao		<- NA # outdoor air temperature
@@ -432,7 +438,7 @@ createCond <- function(a = TRUE){
 	print("An empty list was created. You need to edit it for using it in the function 'calcComfInd'.")
  
 #(10)
-    list(ta = ta, tr = tr, vel = vel, rh = rh, clo = clo, met = met, wme = wme, tu = tu, tmmo = tmmo, ltime = ltime, pb = pb, wt = wt, ht = ht, trm = trm, age = age, gender = gender, tsk = tsk, psych = psych, apCoeff = apCoeff, epCoeff = epCoeff, asCoeff = asCoeff, esCoeff = esCoeff, asv = asv, tao = tao, rho = rho, frad = frad, eps = eps, ic = ic, tcrI = tcrI, tskI = tskI, basMet = basMet, warmUp = warmUp, cdil = cdil, sigmatr = sigmatr)
+    list(ta = ta, tr = tr, vel = vel, rh = rh, clo = clo, met = met, wme = wme, tu = tu, tmmo = tmmo, ltime = ltime, pb = pb, wt = wt, ht = ht, trm = trm, age = age, gender = gender, tsk = tsk, psych = psych, apCoeffc = apCoeffc, apCoeffw = apCoeffw, epCoeff = epCoeff, asCoeffc = asCoeffc, asCoeffw = asCoeffw, esCoeff = esCoeff, asv = asv, tao = tao, rho = rho, frad = frad, eps = eps, ic = ic, tcrI = tcrI, tskI = tskI, basMet = basMet, warmUp = warmUp, cdil = cdil, sigmatr = sigmatr)
     
  }
 }

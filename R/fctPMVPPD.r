@@ -95,10 +95,10 @@ calcPMVPPD(ta, tr, vel, rh, clo, met, wme, basMet)$ppd
 ## calc apmv ################################
 ## based on Yao et al.
 ############################################
-calcaPMV <- function(ta, tr, vel, rh, clo = .5, met = 1, wme = 0, apCoeff){
+calcaPMV <- function(ta, tr, vel, rh, clo = .5, met = 1, wme = 0, apCoeffc, apCoeffw){
 
 	pmv  <- calcPMVPPD(ta, tr, vel, rh, clo, met, wme)[1]
-	apmv <- pmv / (1 + apCoeff * pmv)
+	apmv <- ifelse(pmv >= 0, pmv / (1 + apCoeffw * pmv), pmv / (1 + apCoeffc * pmv))
 	names(apmv) <- "apmv"
 	data.frame(apmv = apmv)
 

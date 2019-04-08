@@ -15,7 +15,7 @@ Calculating Adjusted Predicted Mean Votes
 }
 \usage{
 calcpmvadj(ta, tr, vel, rh, clo, met, wme = 0)
-calcaPMV(ta, tr, vel, rh, clo = 0.5, met = 1, wme = 0, apCoeff)
+calcaPMV(ta, tr, vel, rh, clo = 0.5, met = 1, wme = 0, apCoeffc, apCoeffw)
 calcePMV(ta, tr, vel, rh, clo = 0.5, met = 1, wme = 0, epCoeff)
 }
 \arguments{
@@ -40,15 +40,18 @@ a numeric value presenting metabolic rate in [met]
   \item{wme}{
 a numeric value presenting external work in [met] 
 }
-  \item{apCoeff}{
-adaptive coefficient lambda
+  \item{apCoeffc}{
+adaptive coefficient lambda for cool side
+}
+  \item{apCoeffw}{
+adaptive coefficient lambda for warm side
 }
   \item{epCoeff}{
 expectancy factor e
 }
 }
 \details{
-\code{apCoeff} can be derived using \code{calcapCoeff}.
+\code{apCoeffc} and \code{apCoeffw} can be derived using \code{calcapCoeff}.
 
 \code{epCoeff} can be derived using \code{calcepCoeff}.
 
@@ -90,13 +93,14 @@ asv <- rnorm(5)   # vector with actual sensation votes
 
 lsCond <- as.list(data.frame(ta,tr,vel,rh,clo,met,asv))
 
-## Calculate coefficient apCoeff for data set
+## Calculate coefficient apCoeffc and apCoeffw for data set
 apCoeff <- calcapCoeff(lsCond)
 
 ## calculate apmv
 apmv <- NULL
 for (i in 1:length(ta)){
-apmv[i] <- calcaPMV(ta[i], tr[i], vel[i], rh[i], clo[i], met[i], apCoeff = apCoeff)$apmv
+apmv[i] <- calcaPMV(ta[i], tr[i], vel[i], rh[i], clo[i], met[i], 
+apCoeffc = apCoeff$apCoeffc, apCoeffw = apCoeff$apCoeffw)$apmv
 }
 apmv
 

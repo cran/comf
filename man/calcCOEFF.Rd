@@ -8,7 +8,7 @@
 Calculation of Coefficients for aPMV, ePMV, aPTS, ePTS
 }
 \description{
-The functions \code{calcCOEFF} calculate the coefficients necessary for apmv, epmv, apts, and epts based on a given dataset with actual comfort votes. \code{calcapCoeff} calculates lambda the adaptive coefficient for apmv, \code{calcepCoeff} calculates e the expectancy factor for epmv, \code{calcasCoeff} calculates lambda the adaptive coefficient for apts, \code{calcesCoeff} calculates e the expectancy factor for epts.
+The functions \code{calcCOEFF} calculate the coefficients necessary for apmv, epmv, apts, and epts based on a given dataset with actual comfort votes. \code{calcapCoeff} calculates lambda the adaptive coefficients for apmv, \code{calcepCoeff} calculates e the expectancy factor for epmv, \code{calcasCoeff} calculates lambda the adaptive coefficients for apts, \code{calcesCoeff} calculates e the expectancy factor for epts.
 }
 \usage{
 calcapCoeff(lsCond)
@@ -26,7 +26,7 @@ For \code{calcapCoeff} and \code{calcepCoeff}, lsCond should contain the followi
 For \code{calcasCoeff} and \code{calcesCoeff}, lsCond should contain the following variables: ta, tr, vel, rh, clo, met, wme, pb, ltime, ht, wt, asv (see \code{\link{createCond}} for details). In case one or more of these variables are not included in the list, standard values will be used.
 }
 \value{
-\code{calcCOEFF} returns the adaptive coefficient lambda or expectancy factor depending on its call.
+\code{calcCOEFF} returns the adaptive coefficients lambda or expectancy factor depending on its call.
 }
 \references{
 Coefficients are calculated based on Gao, J.; Wang, Y. and Wargocki, P. Comparative analysis of modified PMV models and set models to predict human thermal sensation in naturally ventilated buildings Building and Environment, 2015, 92, 200-208.
@@ -63,7 +63,8 @@ calcasCoeff(lsCond)
 calcesCoeff(lsCond)
 
 ## use coefficients to calculate apmv
-lsCond$apCoeff[1] <- calcapCoeff(lsCond)$apCoeff
+lsCond$apCoeffc[1] <- calcapCoeff(lsCond)$apCoeffc
+lsCond$apCoeffw[1] <- calcapCoeff(lsCond)$apCoeffw
 calcComfInd(lsCond, request="apmv")
 }
 \keyword{ manip }

@@ -39,9 +39,11 @@ The list \code{lsCond} could contain one or more of the following variables:
 	gender 	\tab gender (female = 1) \cr
 	tsk   	\tab mean skin temperature in (degree C) \cr
 	psych 	\tab factor related to fixed effect on perceived control \cr
-	apCoeff \tab adaptive coefficient for pmv \cr
+	apCoeffc \tab adaptive coefficient for cool side for pmv \cr
+	apCoeffw \tab adaptive coefficient for warm side for pmv \cr
 	epCoeff \tab expectancy factor for pmv \cr
-	asCoeff \tab adaptive coefficient for set \cr
+	asCoeffc \tab adaptive coefficient for cool side for set \cr
+	asCoeffw \tab adaptive coefficient for warm side for set \cr
 	esCoeff \tab expectancy factor for set \cr
 	asv     \tab actual sensation vote (0 = neutral) \cr
 	tao		\tab outdoor air temperature \cr
@@ -72,8 +74,8 @@ The vector \code{request} can contain the following elements:
 	"ATHBpmv" \tab Adaptive thermal heat balance vote based on pmv \tab ta, tr, vel, rh, met, wme, psych, trm \cr
 	"ATHBset" \tab Adaptive standard effective temperature \tab ta, tr, vel, rh, trm, met, wme, pb, ltime, ht, wt, psych \cr
 	"ATHBpts" \tab Adaptive thermal heat balance vote based on set \tab ta, tr, vel, rh, trm, met, wme, pb, ltime, ht, wt, psych \cr
-	"apmv" \tab Adaptive predicted mean vote according to Yao et al. \tab ta, tr, vel, rh, clo, met, wme, apCoeff \cr
-	"ptsa" \tab Adaptive predicted thermal sensation vote according to Gao et al. \tab ta, tr, vel, rh, clo, met, wme, pb, ltime, ht, wt, asCoeff \cr
+	"apmv" \tab Adaptive predicted mean vote according to Yao et al. \tab ta, tr, vel, rh, clo, met, wme, apCoeffc, apCoeffw \cr
+	"ptsa" \tab Adaptive predicted thermal sensation vote according to Gao et al. \tab ta, tr, vel, rh, clo, met, wme, pb, ltime, ht, wt, asCoeffc, asCoeffw \cr
 	"epmv" \tab pmv adjusted with expectancy factor based on Fanger and toftum \tab ta, tr, vel, rh, clo, met, wme, epCoeff, asv \cr
 	"ptse" \tab Predicted thermal sensation vote based on set and adjusted with expectancy factor according to Gao et al. \tab ta, tr, vel, rh, clo, met, wme, pb, ltime, ht, wt, esCoeff, asv \cr
 	"set" \tab standard effective temperature based on two node model by Gagge et al. \tab ta, tr, vel, rh, clo, met, wme, pb, ltime, ht, wt \cr

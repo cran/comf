@@ -376,11 +376,11 @@ as.numeric(calc2Node(ta, tr, vel, rh, clo, met, wme, pb, ltime, ht, wt, tu, obj,
 ## calc aset ################################
 ## based on Gao et al.
 ############################################
-calcPtsa <- function(ta, tr, vel, rh, clo = .5, met = 1, wme = 0, pb = 760, ltime = 60, ht = 171, wt = 70, tu = 40, asCoeff){
+calcPtsa <- function(ta, tr, vel, rh, clo = .5, met = 1, wme = 0, pb = 760, ltime = 60, ht = 171, wt = 70, tu = 40, asCoeffc, asCoeffw){
  
 	set <- calc2Node(ta, tr, vel, rh, clo, met, wme, pb, ltime, ht, wt, tu, obj = "set")[2]
 	ptsa <- .25 * set - 6.03
-	ptsa <- ptsa / (1 + asCoeff * ptsa)
+	ptsa <- ifelse(ptsa >= 0, ptsa / (1 + asCoeffw * ptsa), ptsa / (1 + asCoeffc * ptsa))
 	names(ptsa) <- "ptsa"
 	data.frame(ptsa = ptsa)
 

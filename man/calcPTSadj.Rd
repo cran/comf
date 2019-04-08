@@ -16,7 +16,7 @@ Calculating the Predicted Thermal Sensation based on 2-Node Model adjusted for A
 }
 \usage{
 calcPtsa(ta, tr, vel, rh, clo = 0.5, met = 1, wme = 0, pb = 760, ltime = 60, ht = 171,
- wt = 70, tu = 40, asCoeff)
+ wt = 70, tu = 40, asCoeffc, asCoeffw)
 calcPtse(ta, tr, vel, rh, clo = 0.5, met = 1, wme = 0, pb = 760, ltime = 60, ht = 171,
  wt = 70, tu = 40, esCoeff)
 }
@@ -57,15 +57,18 @@ a numeric value presenting body weight in [kg]
   \item{tu}{
 a numeric value presenting the turbulence intensity (value does not affect outcome)
 }
-  \item{asCoeff}{
-adaptive coefficient lambda
+  \item{asCoeffc}{
+adaptive coefficient lambda for cool side
+}
+  \item{asCoeffw}{
+adaptive coefficient lambda for warm side
 }
   \item{esCoeff}{
 expectancy factor e
 }
 }
 \details{
-\code{asCoeff} can be derived using \code{calcasCoeff}.
+\code{asCoeffc} and \code{asCoeffw} can be derived using \code{calcasCoeff}.
 
 \code{esCoeff} can be derived using \code{calcesCoeff}.
 
@@ -102,13 +105,14 @@ asv <- rnorm(5)   # vector with actual sensation votes
 
 lsCond <- as.list(data.frame(ta,tr,vel,rh,clo,met,asv))
 
-## Calculate coefficient asCoeff for data set
+## Calculate coefficient asCoeffc and asCoeffw for data set
 asCoeff <- calcasCoeff(lsCond)
 
 ## calculate ptsa
 ptsa <- NULL
 for (i in 1:length(ta)){
-ptsa[i] <- calcPtsa(ta[i], tr[i], vel[i], rh[i], clo[i], met[i], asCoeff = asCoeff)$ptsa
+ptsa[i] <- calcPtsa(ta[i], tr[i], vel[i], rh[i], clo[i], met[i],
+asCoeffc = asCoeff$asCoeffc, asCoeffw = asCoeff$asCoeffw)$ptsa
 }
 ptsa
 

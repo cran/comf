@@ -16,24 +16,42 @@ calcepCoeff <- function(lsCond){
 
 calcapCoeff <- function(lsCond){
 
-	pmv <- calcComfInd(lsCond, request = "apCoeff")
-	pmv <- cutTSV(pmv$apCoeff)
+	pmv <- calcComfInd(lsCond, request = "apCoeff")$apCoeff
+	#pmv <- cutTSV(pmv$apCoeff)
 	pmv <- as.numeric(as.character(pmv))
+	pmvc <- subset(pmv, pmv < 0)
+	pmvw <- subset(pmv, pmv > 0)
 	amv <- lsCond$asv
+	amvc <- subset(amv, pmv < 0)
+	amvw <- subset(amv, pmv > 0)
+	#if (sum(which(pmv == 0)) > 0){pmv[which(pmv == 0)] <- NA}
+	#if (sum(which(amv == 0)) > 0){amv[which(amv == 0)] <- NA}
 	
-	if (sum(which(pmv == 0)) > 0){pmv[which(pmv == 0)] <- NA}
-	if (sum(which(amv == 0)) > 0){amv[which(amv == 0)] <- NA}
-	
-	df <- data.frame(pmv, amv)
-	df <- na.omit(df)
-	
-	amvi <- 1 / (df$amv)
-	pmvi <- 1 / (df$pmv)
-	sumA <- sum(amvi)
-	sumP <- sum(pmvi)
-	
-	apCoeff <- (sumA-sumP) / length(lsCond$asv)
-	data.frame(apCoeff = apCoeff)
+	dfc <- data.frame(pmvc, amvc)
+	dfc <- na.omit(dfc)
+	dfw <- data.frame(pmvw, amvw)
+	dfw <- na.omit(dfw)
+
+	if(nrow(dfc)>0){
+		dfc$dPMVAMV <- dfc$pmvc - dfc$amvc
+		sumc <- sum(dfc$dPMVAMV)
+		apCoeffc <- sumc / length(dfc$amvc)
+	} else {
+		apCoeffc <- "NA no data from cool side"
+	}
+
+	if(nrow(dfw)>0){
+		dfw$dPMVAMV <- dfw$pmvw - dfw$amvw
+		sumw <- sum(dfw$dPMVAMV)
+		apCoeffw <- sumw / length(dfw$amvw)
+	} else {
+		apCoeffw <- "NA no data from warm side"
+	}
+	#amvi <- 1 / (df$amv)
+	#pmvi <- 1 / (df$pmv)
+	#sumA <- sum(amvi)
+	#sumP <- sum(pmvi)
+	data.frame(apCoeffc = apCoeffc, apCoeffw = apCoeffw)
 }
 
 calcesCoeff <- function(lsCond){
@@ -55,24 +73,44 @@ calcesCoeff <- function(lsCond){
 
 calcasCoeff <- function(lsCond){
 
-	pts <- calcComfInd(lsCond, request = "asCoeff")
-	pts <- cutTSV(pts$asCoeff)
+	pts <- calcComfInd(lsCond, request = "asCoeff")$asCoeff
+	#pts <- cutTSV(pts$asCoeff)
 	pts <- as.numeric(as.character(pts))
+	ptsc <- subset(pts, pts < 0)
+	ptsw <- subset(pts, pts > 0)
 	amv <- lsCond$asv
+	amvc <- subset(amv, pts < 0)
+	amvw <- subset(amv, pts > 0)
 	
-	if (sum(which(pts == 0)) > 0){pts[which(pts == 0)] <- NA}
-	if (sum(which(amv == 0)) > 0){amv[which(amv == 0)] <- NA}
+	#if (sum(which(pts == 0)) > 0){pts[which(pts == 0)] <- NA}
+	#if (sum(which(amv == 0)) > 0){amv[which(amv == 0)] <- NA}
 	
-	df <- data.frame(pts, amv)
-	df <- na.omit(df)
+	dfc <- data.frame(ptsc, amvc)
+	dfc <- na.omit(dfc)
+	dfw <- data.frame(ptsw, amvw)
+	dfw <- na.omit(dfw)
 	
-	amvi <- 1 / (df$amv)
-	ptsi <- 1 / (df$pts)
-	sumA <- sum(amvi)
-	sumP <- sum(ptsi)
+	if(nrow(dfc)>0){
+		dfc$dPTSAMV <- dfc$ptsc - dfc$amvc
+		sumc <- sum(dfc$dPTSAMV)
+		asCoeffc <- sumc / length(dfc$amvc)
+	} else {
+		asCoeffc <- "NA no data from cool side"
+	}
+
+	if(nrow(dfw)>0){
+		dfw$dPTSAMV <- dfw$ptsw - dfw$amvw
+		sumw <- sum(dfw$dPTSAMV)
+		asCoeffw <- sumw / length(dfw$amvw)
+	} else {
+		asCoeffw <- "NA no data from warm side"
+	}
+	# amvi <- 1 / (df$amv)
+	# ptsi <- 1 / (df$pts)
+	# sumA <- sum(amvi)
+	# sumP <- sum(ptsi)	
+	data.frame(asCoeffc = asCoeffc, asCoeffw = asCoeffw)
 	
-	asCoeff <- (sumA - sumP) / length(lsCond$asv)
-	data.frame(asCoeff = asCoeff)
 }
 
 # CALCULATION of operative temperature for standard globe measurement according to DIN EN IsO 7726 Equation (9)
@@ -439,7 +477,7 @@ pckgCheck <- function(){
 	
 	lsCond <- createCond()
 	res <- calcComfInd(lsCond, request = "all")
-	resSet <- c(-0.13, 5.37, 25, 24.22, 0.18, 0.21, 6.45, 40.48, 0.02, 0.22, 0.2, 23.32, 19.91, 21.92, 23.75, 2.69, 1.4, -2.3, 33.6, 30.6, 36.5, 27.3, 23.2, 31.1, 26.6, 27.9, 0.52, 26.65, 0.63, -0.14, -0.12, 0.02, 0.03, -0.13, 2.27, 28.28)
+	resSet <- c(-0.13, 5.37, 25, 24.22, 0.18, 0.21, 6.45, 40.48, 0.02, 0.22, 0.2, 23.32, 19.91, 21.92, 23.75, 2.69, 1.4, -2.3, 33.6, 30.6, 36.5, 27.3, 23.2, 31.1, 26.6, 27.9, 0.52, 26.65, 0.63, -0.13, -0.12, 0.02, 0.03, -0.13, 2.27, 28.28)
 	print(table(round(res, 2) == resSet))
 	print(table(round(calcPMVPPD(25, 20, .2, 50), 2) == c(-1.53, 52.75)))
 	

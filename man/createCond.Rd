@@ -37,9 +37,11 @@ logical. If a = TRUE, function returns a list of standard conditions. If a = FAL
 	gender \tab 1 \tab NA \tab gender (female = 1) \cr
 	tsk \tab 35 \tab NA \tab mean skin temperature in (degree C) \cr
 	psych \tab -1.4 \tab NA \tab factor related to fixed effect on perceived control \cr
-	apCoeff \tab .293 \tab NA \tab adaptive coefficient for pmv \cr
+	apCoeffc \tab -.125 \tab NA \tab adaptive coefficient for cool side for pmv \cr
+	apCoeffw \tab .293 \tab NA \tab adaptive coefficient for warm side for pmv \cr
 	epCoeff \tab .9 \tab NA \tab expectancy factor for pmv \cr
-	asCoeff \tab .2 \tab NA \tab adaptive coefficient for set \cr
+	asCoeffc \tab -.2 \tab NA \tab adaptive coefficient for cool side for set \cr
+	asCoeffw \tab .2 \tab NA \tab adaptive coefficient for warm side for set \cr
 	esCoeff \tab 1.3 \tab NA \tab expectancy factor for set \cr
 	asv \tab 1.5 \tab NA \tab actual sensation vote (0 = neutral) \cr
 	tao \tab 5 \tab NA \tab outdoor air temperature \cr
