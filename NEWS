@@ -1,3 +1,12 @@
+comf v0.1.12 (Release date: 2024-01-29)
+==============
+
+Changes:
+
+* added validation function to compare to pythermalcomfort
+* added new functions to calculate MRTnew and ATHBpmvNew
+* minor adjustments to comments
+
 comf v0.1.11 (Release date: 2022-05-12)
 ==============
 
@@ -5,8 +14,6 @@ Changes:
 
 * minor adjustments to LaTeX to correct warnings
 * added new functions to calculate MRTnew and ATHBpmvNew
-* Note that calcATHBpmv now considers the 2022 version
-* the old ATHBpmv can be calculated using calcATHBpmv2015
 * minor adjustments to comments
 
 comf v0.1.10 (Release date: 2021-02-10)

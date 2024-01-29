@@ -1,24 +1,25 @@
 #' MRT calculation based on standard and mixed convection
 #' 
-#' aliases MRT 
-#' @description \code{calcMRT} calculates the mean radiant temperature considering mixed convection
+#' aliases MRT globe
+#' @description \code{calcMRTglobe} calculates the mean radiant temperature considering mixed convection
 #' 
-#' @usage calcMRT(tg, ta, vel, x = 0.15)
+#' @usage calcMRTglobe(tg, ta, vel, x = 0.15)
 #'
 #' @param tg - a numeric value presenting globe temperature in [degree C]
 #' @param ta - a numeric value presenting air temperature in [degree C]
 #' @param vel - a numeric value presenting air velocity in [m/s]
-#' @param x - a numeric value presenting globe diamter in [m]
+#' @param x - a numeric value presenting globe diameter in [m]
 #'
-#' @return \code{calcMRT} MRT with standard and mixed correction
+#' @return \code{calcMRTglobe} MRT with standard and mixed correction
 #' 
 #' @details This model has only been validated from x = 0.040m (ping pong ball) to
 #' @details x = 0.150m (standard globe thermometer) globes
 #' 
 #' @references 
 #' Teitelbaum et al. (2022) <10.1038/s41598-022-10172-5>
-#' 
-#' @author code implementedc into R by Shaomi Rahman and Marcel Schweiker.
+#' Teitelbaum (2022)  <https://github.com/eteitelb/MixedConvection>
+#'
+#' @author code implemented into R by Shaomi Rahman and Marcel Schweiker.
 #' @export
 #'
 #' @examples #Globe temperature [C]
@@ -27,10 +28,10 @@
 #' @examples ta <- 24
 #' @examples #Air speed [m/s]
 #' @examples vel <- 0.0
-#' @examples calcMRT(tg, ta, vel)
+#' @examples calcMRTglobe(tg, ta, vel)
 
 
-calcMRT <- function(tg, ta, vel, x = 0.15){
+calcMRTglobe <- function(tg, ta, vel, x = 0.15){
 	#initialize constants
 
 	#Prandtl constants
